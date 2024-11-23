@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Link to the external CSS file -->
-  <link rel="stylesheet" href="styles.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Keti's World</title>
+  <link rel="stylesheet" href="style.css">
 
   <script>
     // Splash page timeout and click logic
@@ -27,9 +25,16 @@
       // Set the repeating text inside the div
       splashText.innerHTML = mymsg;
 
-      // Append text to the container and container to the splash screen
+      // Create the centered image
+      var splashImage = document.createElement("img");
+      splashImage.src = "path_to_your_image.jpg";  // Replace with your image path
+      splashImage.alt = "Centered Image";
+      splashImage.classList.add("centered-image");
+
+      // Append text and image to splash screen
       splashTextContainer.appendChild(splashText);
       splashScreen.appendChild(splashTextContainer);
+      splashScreen.appendChild(splashImage);
 
       // Attach click event to close the splash screen
       splashScreen.addEventListener('click', function () {
@@ -102,7 +107,7 @@
 
     <main>
       <div id="content">
-        <img src="image.jpg" alt="Some Image">
+        <img src="pixil-frame-1.png" alt="Some Image">
         <h2>Welcome to my page, hope you have fun</h2>
         <p>Feel free to check out more content <a href="https://www.geeksforgeeks.org/" target="_blank">here</a>.</p>
       </div>
