@@ -4,115 +4,123 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Keti's World</title>
+  <link rel="stylesheet" href="https://use.typekit.net/lwe2khs.css">
   <link rel="stylesheet" href="style.css">
 
   <script>
-    // Splash page timeout and click logic
-    let splashTimeoutId;
-
-    // Function to display the splash screen
-    function splashTimeout(mymsg, mymsecs) {
-      var splashScreen = document.createElement("div");
-      splashScreen.classList.add("splash-screen");
-
-      // Create and add the rotating text element
-      var splashTextContainer = document.createElement("div");
-      splashTextContainer.classList.add("splash-text-container");
-
-      var splashText = document.createElement("div");
-      splashText.classList.add("splash-text");
-
-      // Set the repeating text inside the div
-      splashText.innerHTML = mymsg;
-
-      // Create the centered image
-      var splashImage = document.createElement("img");
-      splashImage.src = "path_to_your_image.jpg";  // Replace with your image path
-      splashImage.alt = "Centered Image";
-      splashImage.classList.add("centered-image");
-
-      // Append text and image to splash screen
-      splashTextContainer.appendChild(splashText);
-      splashScreen.appendChild(splashTextContainer);
-      splashScreen.appendChild(splashImage);
-
-      // Attach click event to close the splash screen
-      splashScreen.addEventListener('click', function () {
-        clearTimeout(splashTimeoutId);
-        document.body.removeChild(splashScreen); // Remove splash screen on click
-      });
-
-      // Set a timeout to remove splash screen after a certain time
-      splashTimeoutId = setTimeout(function () {
-        document.body.removeChild(splashScreen); // Remove splash screen after timeout
-      }, mymsecs);
-
-      document.body.appendChild(splashScreen);
-    }
-
-    // Function to get cookies
-    function getCookie(c_name) {
-      var i, x, y, cookies = document.cookie;
-      x = cookies.substr(0, cookies.indexOf("="));
-      y = cookies.substr(cookies.indexOf("=") + 1);
-      x = x.replace(/^\s+|\s+$/g, "");
-      if (x == c_name) {
-        return unescape(y);
-      }
-    }
-
-    // Function to set cookies
-    function setCookie(c_name, value) {
-      var expiry = new Date();
-      expiry.setDate(expiry.getDate() + 100);
-      document.cookie = c_name + "=" + escape(value);
-    }
-
-    // Function to check if splash page has been shown before
-    function check() {
-      var username = getCookie("splashbox");
-      if (username != null && username != "") {
-        return; // Skip splash if cookie is set
-      } else {
-        splashTimeout("Keti's World ;)", 15000); // Show splash page for 15 seconds
-      }
-    }
-
-    // Function to run on page load
     window.onload = function () {
-      check();
+      showSplashScreen();
+      startImageFlicker();
+    };
+
+
+    function startSplashImageFlicker() {
+      const splashImage = document.getElementById("splash-flickering-image");
+      let isImageOne = true;
+      setInterval(() => {
+        splashImage.src = isImageOne ? "pixil-frame-1.png" : "pixil-frame-0.png";
+        isImageOne = !isImageOne;
+      }, 1000);
+    }
+
+    function startImageFlicker() {
+      const flickeringImage = document.getElementById('flickering-image');
+      let isImageOne = true;
+      setInterval(() => {
+        flickeringImage.src = isImageOne ? "pixil-frame-1.png" : "pixil-frame-0.png";
+        isImageOne = !isImageOne;
+      }, 3000);
+    }
+    let isImageOne = true;
+    function startImageFlicker() {
+      const flickeringImage = document.getElementById('flickering-image');
+      setInterval(() => {
+        flickeringImage.src = isImageOne ? "pixil-frame-1.png" : "pixil-frame-0.png";
+        isImageOne = !isImageOne;
+      }, 500);
+    }
+
+    function removeSplash() {
+      const splash = document.getElementById('splash');
+      splash.style.animation = 'fadeOut 1s ease-in-out';
+      setTimeout(() => splash.remove(), 1000);
+    }
+
+    window.onload = function () {
+      startImageFlicker();
+      setTimeout(removeSplash, 5000);
+      document.getElementById('splash').addEventListener('click', removeSplash);
     };
   </script>
-
 </head>
-
 <body>
   <div id="app">
     <header>
-      <h1>Keti's World</h1>
-      <h2>Welcome to my page!</h2>
+      <div class="splash-screen" id="splash">
+        <div class="splash-text">
+          <span>Keti's</span>
+          <img id="flickering-image" class="flickering-image" src="pixil-frame-0.png" alt="Flickering Image">
+          <span>World</span>
+        </div>
+      </div>    
     </header>
-
-    <section>
-        <h1 class="ring">Keti's World</h1>
-    </section>
-
-    <nav>
-      <ul>
-        <li><a href="#" onclick="changeContent('home')">Work 1</a></li>
-        <li><a href="#" onclick="changeContent('about')">About Me</a></li>
-        <li><a href="#" onclick="changeContent('contact')">Work 2</a></li>
-      </ul>
-    </nav>
 
     <main>
       <div id="content">
-        <img src="pixil-frame-1.png" alt="Some Image">
-        <h2>Welcome to my page, hope you have fun</h2>
-        <p>Feel free to check out more content <a href="https://www.geeksforgeeks.org/" target="_blank">here</a>.</p>
+        <nav>
+          <ul>
+            <li><a href="1" onclick="changeContent('home')">Work</a></li>
+            <li><a href="2" onclick="changeContent('about')">About Me</a></li>
+          
+          </ul>
+        </nav>
+        <div id="scroll-container">
+          <div id="scroll-text">  
+      Welcome to my page hope you like it here!    <div id="welcome-section">
+        <img src="pixil-frame-0.png" alt="Flickering Image">
+      </div>Welcome to my page hope you like it here!
+    </span>
+  
+    </div></div>
+    <div id="container">
+      <div id="circle">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="600px" height="600px" viewBox="0 0 300 300" xml:space="preserve">
+          
+          <defs>
+            <!-- Inner Text Path -->
+            <path id="innerCirclePath" d="M 150, 150 m -100, 0 a 100,100 0 1,1 200,0 a 100,100 0 1,1 -200,0"/>
+    
+            <!-- Outer Text Path (Larger) -->
+            <path id="outerCirclePath" d="M 150, 150 m -130, 0 a 130,130 0 1,1 260,0 a 130,130 0 1,1 -260,0"/>
+          </defs>
+    
+          <!-- Static Circles for Reference -->
+          <circle cx="150" cy="150" r="100" fill="none" stroke="black" stroke-width="1"/>
+          <circle cx="150" cy="150" r="130" fill="none" stroke="black" stroke-width="1"/>
+    
+          <!-- Rotating Inner Text (Clockwise) -->
+          <g id="rotating-text-clockwise">
+            <text font-size="14" fill="black">
+              <textPath xlink:href="#innerCirclePath" startOffset="0%">
+                1. Some facts about me • 2. Alone • 3. Human Routines • 4. Love is 5. Strings of Attachment 6.Synth
+              </textPath>
+            </text>
+          </g>
+    
+          <!-- Rotating Outer Text (Counterclockwise) -->
+          <g id="rotating-text-counterclockwise">
+            <text font-size="14" fill="black">
+              <textPath xlink:href="#outerCirclePath" startOffset="0%">
+                Projects! Projects! Projects! Projects! Projects! Projects! Projects! Projects! 
+              </textPath>
+            </text>
+          </g>
+          
+        </svg>
       </div>
+    </div>
+    
     </main>
   </div>
 </body>
-
-</html>

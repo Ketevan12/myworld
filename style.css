@@ -1,160 +1,199 @@
-*,
-*:after,
-*:before {
-  box-sizing: border-box;
-}
-
 body {
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
-  font-family: 'Google Sans', sans-serif, system-ui;
-  accent-color: var(--red-6);
-}
-
-pre {
-  padding: var(--size-2);
-  overflow: auto;
-}
-
-ul:not(.closed) > .code-block {
-  height: auto !important;
-  line-height: 1 !important;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
+  font-family: "cofo-sans-variable", sans-serif;
+  margin: 0;
   padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+  box-sizing: border-box;
+  background-color: rgb(224, 187, 235);
 }
 
-*:focus-visible {
-  outline-color: var(--red-6);
-}
-
-input::selection {
-  background: var(--red-6);
-  color: var(--text-1);
-  background: hsl(0 100% 50%);
-  color: hsl(0 0% 100%);
-}
-
-section:first-of-type {
-  min-height: 250px;
-  height: calc(2 * var(--buffer));
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-}
-
-section:last-of-type {
-  display: grid;
-  gap: 2rem;
-}
-
-form {
-  display: inline-grid;
-  grid-template-columns: auto auto;
-  gap: 0.5rem 1rem;
-  justify-content: center;
-}
-
-:where(p, ul, ol, dl, h6) {
-  font-size: var(--font-size-0);
-}
-
-.ring {
-  --inner-angle: calc((360 / var(--char-count)) * 1deg);
-  --character-width: 1;
-  font-family: monospace;
-  text-transform: uppercase;
-  font-size: calc(var(--font-size, 1) * 1rem);
-  position: relative;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .ring {
-    animation: spin 6s infinite linear;  
-  }
-  @keyframes spin {
-    to {
-      rotate: -360deg;
-    }
-  }
-}
-
-.char {
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform:
-    translate(-50%, -50%)
-    rotate(calc(var(--inner-angle) * var(--char-index)))
-    translateY(var(--radius));
-}
-
-/* Splash screen styles */
 .splash-screen {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: lightblue; /* Light blue background */
-  color: pink; /* Pink text */
-  font-family: Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(242, 201, 255, 1); /* Set alpha to 1 for full opacity */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: 4px solid black;
-  border-radius: 10px;
-  cursor: pointer;
-  overflow: hidden; /* Ensure text doesn't overflow outside the container */
-  position: relative; /* So image can be positioned absolutely */
-}
-
-.splash-text-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px; /* Fixed width for better control */
-  height: 400px; /* Fixed height for better control */
-  transform: translate(-50%, -50%); /* Center the container */
+  z-index: 1000;
+  color: aliceblue;
 }
 
 .splash-text {
-  position: absolute;
-  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: -10px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  color: aliceblue;
+
+}
+
+.splash-text span {
+  gap: -100px;
+  font-size: 10vw; /* Use viewport width for scaling */
   font-weight: bold;
-  color: pink;
   white-space: nowrap;
-  animation: rotateText 15s infinite linear;
+  color: aliceblue;
+  text-shadow: 2px 2px 5px rgb(9, 81, 189), -2px -2px 5px rgb(9, 81, 189), 2px -2px 5px rgb(9, 81, 189), -2px 2px 5px rgb(9, 81, 189);
 }
 
-.centered-image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the image */
-  width: 200px; /* Adjust size of the image */
-  height: auto; /* Maintain aspect ratio */
-  z-index: -1; /* Make sure the image is behind the text */
+.flickering-image {
+  width: 40vh; /* Set width as a percentage of viewport height */
+  height: 40vh; /* Set height as a percentage of viewport height */
+  margin-top: 10vh; /* Adjust margin for better placement */
+  max-width: 60vw; /* Limit width on smaller screens */
+  max-height: 60vh; /* Limit height on smaller screens */
 }
 
-@keyframes rotateText {
-  0% {
-    transform: rotate(0deg) translateX(150px) rotate(0deg);
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .splash-text {
+    flex-direction: column; /* Stack elements vertically */
+    gap: 10px; /* Add a bit of gap between text and image */
   }
-  100% {
-    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+
+  .splash-text span {
+    font-size: 15vw; /* Slightly larger font size for small screens */
+  }
+
+  .flickering-image {
+    width: 30vh; /* Adjust the image size for smaller screens */
+    height: 30vh; /* Adjust the image size for smaller screens */
+    margin-top: 5vh; /* Reduce the margin */
+  }
+}
+
+/* New styles for "Welcome to my page" with flickering image at the top left */
+#welcome-section {
+  position: absolute;
+  top: 20px; /* Adjust to place the content slightly below the top */
+  left: 20px; /* Adjust to place the content slightly from the left */
+  display: flex;
+  align-items: center;
+  color: aliceblue;
+  font-size: 1.5em;
+}
+
+#welcome-section img {
+  width: 3em; /* Adjust image size */
+  height: 3em; /* Adjust image size */
+  margin-left: 10px; /* Space between text and image */
+}
+
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+header h1 {
+  margin-left: 10px;
+  font-size: 2em;
+}
+
+/* Make the flickering image slightly bigger */
+
+
+/* Style for the rest of the page */
+section {
+  padding: 20px;
+}
+nav {
+  position: absolute;
+  top: 20px; /* Adjust distance from the top */
+  right: 20px; /* Move to the right corner */
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px; /* Add spacing between links */
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: aliceblue;
+  font-weight: bold;
+  font-size: 1.2em;
+}#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+#circle {
+  width: 300px;
+  height: 300px;
+}
+
+/* Inner text rotates clockwise */
+#rotating-text-clockwise {
+  animation: rotate-clockwise 10s linear infinite;
+  transform-origin: 150px 150px; /* Center of the SVG */
+}
+
+/* Outer text rotates counterclockwise */
+#rotating-text-counterclockwise {
+  animation: rotate-counterclockwise 15s linear infinite;
+  transform-origin: 150px 150px; /* Center of the SVG */
+}
+
+@keyframes rotate-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-counterclockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+#scroll-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  background: white;
+  padding: 10px 0;
+}
+
+#scroll-text {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  animation: scroll-text 10s linear infinite;
+}
+
+@keyframes scroll-text {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
   }
 }
