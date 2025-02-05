@@ -1,10 +1,19 @@
 body {
-  font-family: "cofo-sans-variable", sans-serif;
+  font-family: "Jacquard 12", serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: rgb(224, 187, 235);
+  background-color: rgb(38, 0, 49);
+  cursor: none;
 }
+
+.jacquard-12-regular {
+  font-family: "Jacquard 12", serif;
+  font-weight: 50;
+  font-style: normal;
+}
+
+
 
 .splash-screen {
   position: fixed;
@@ -18,7 +27,8 @@ body {
   align-items: center;
   text-align: center;
   z-index: 1000;
-  color: aliceblue;
+  color: rgb(255, 0, 195);
+  cursor: none;
 }
 
 .splash-text {
@@ -29,16 +39,16 @@ body {
   gap: -10px;
   flex-wrap: wrap;
   max-width: 100%;
-  color: aliceblue;
+  color: rgb(200, 0, 113);
 
 }
 
 .splash-text span {
   gap: -100px;
-  font-size: 10vw; /* Use viewport width for scaling */
+  font-size: 14vw; /* Use viewport width for scaling */
   font-weight: bold;
   white-space: nowrap;
-  color: aliceblue;
+  
   text-shadow: 2px 2px 5px rgb(9, 81, 189), -2px -2px 5px rgb(9, 81, 189), 2px -2px 5px rgb(9, 81, 189), -2px 2px 5px rgb(9, 81, 189);
 }
 
@@ -106,42 +116,62 @@ header h1 {
 section {
   padding: 20px;
 }
-nav {
-  position: absolute;
-  top: 20px; /* Adjust distance from the top */
-  right: 20px; /* Move to the right corner */
-}
 
-nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 15px; /* Add spacing between links */
-}
 
-nav ul li {
-  display: inline-block;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: aliceblue;
-  font-weight: bold;
-  font-size: 1.2em;
-}#container {
+#container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none; 
+  fill: rgb(141, 0, 54); 
+  cursor: none;
+ 
 }
 
+
+
 #circle {
-  width: 300px;
-  height: 300px;
+  width: 80vw;
+  height: 80vw;
+  max-width: 80vh;
+  max-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
+
+#circle:hover {
+transition-delay: 10s;
+}
+
+
+#shadow {
+  text-decoration: none;
+  fill: rgb(255, 255, 255);
+  transition: text-shadow 0.3s ease; /* Add transition for smooth effect */
+}
+
+#shadow:hover {
+
+  text-shadow: 2px 2px 5px rgb(9, 81, 189), -2px -2px 5px rgb(9, 81, 189), 2px -2px 5px rgb(9, 81, 189), -2px 2px 5px rgb(9, 81, 189);
+}
+#shadow1 {
+  text-decoration: none;
+  fill: rgb(255, 255, 255);
+  transition: text-shadow 0.3s ease; /* Add transition for smooth effect */
+ 
+}
+#shadow1:hover {
+  text-shadow: 2px 2px 5px rgb(189, 9, 111), -2px -2px 5px rgb(189, 9, 111), 2px -2px 5px rgb(189, 9, 111), -2px 2px 5px rgb(189, 9, 111);
+}
+
 
 /* Inner text rotates clockwise */
 #rotating-text-clockwise {
@@ -172,28 +202,172 @@ nav ul li a {
     transform: rotate(-360deg);
   }
 }
+#rotating-text-clockwise text,
+#rotating-text-counterclockwise text {
+  text-decoration: none;  /* Remove underline */
+  fill: black;            /* Ensure text is visible */
+}
+
+#rotating-text-clockwise textPath,
+#rotating-text-counterclockwise textPath {
+  text-decoration: none;  /* Remove underline from textPath */
+}
+
+  
 #scroll-container {
   width: 100%;
-  overflow: hidden;
+  position: absolute;
+  bottom: 0; /* Fix to bottom of the screen */
+  left: 0;
   white-space: nowrap;
-  position: relative;
-  background: white;
-  padding: 10px 0;
+  display: flex;
+  align-items: center; /* Center items vertically */
+  overflow: hidden; /* Prevent overflow issues */
+  font-weight: 30;
 }
 
-#scroll-text {
-  display: inline-block;
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-  animation: scroll-text 10s linear infinite;
+#scroll-content {
+  display: flex;
+  align-items: center; /* Keep text and images aligned */
+  gap: 20px; /* Adjust spacing between elements */
+  padding-left: 0%; /* Start off-screen */
+  animation: scroll-text 35s linear infinite;
+  
 }
+
+
+#scroll-content span {
+  font-size: 30px;
+  color: rgb(0, 104, 94);
+}
+
+.flickering-image1 {
+  height: 100px; /* Adjust size */
+  width: auto;
+}
+
 
 @keyframes scroll-text {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(100%); } /* Start off-screen */
+  100% { transform: translateX(-100%); } /* Move fully off-screen */
+}
+
+body, html {
+  overflow: hidden;
+}
+#contain {
+  position: absolute; /* Allow precise positioning */
+  top: 0;  /* Align to the top */
+  left: 0; /* Align to the left */
+  width: 15vh;  /* Set width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 20vw; 
+  max-height: 20vh; 
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  justify-content: flex-start; /* Align items to the left */
+  padding: 0px; 
+  font-size: 9vh;
+  padding-top:22px;
+}
+
+#img1 {
+  width: 14vh;  /* Make image smaller */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 20vw; 
+  max-height: 20vh; 
+}
+
+#contain2 {
+  position: absolute;  /* Precise positioning */
+  top: 0;  /* Align to the top */
+  right: 0;  /* Align to the right side of the screen */
+  width: auto;  /* Let the width adjust to content */
+  height: auto;  /* Maintain aspect ratio */
+  max-width: 20vw; 
+  max-height: 20vh; 
+  display: flex;
+  align-items: flex-start;  /* Align items to the top */
+  justify-content: flex-start;  /* Align items to the left */
+  font-size: 5vw;  /* Adjust font size dynamically with screen size */
+  padding-top: 12px;
+  text-align: right;  /* Align text to the right */
+  color: white;  /* Text color */
+  transition: text-shadow 0.3s ease; /* Smooth transition for shadow */
+  overflow: hidden;  /* Prevent overflow */
+}
+
+#contain2:hover {
+  text-shadow: 2px 2px 5px rgb(9, 81, 189), 
+               -2px -2px 5px rgb(9, 81, 189), 
+               2px -2px 5px rgb(9, 81, 189), 
+               -2px 2px 5px rgb(9, 81, 189);  /* Shadow effect on hover */
+}
+
+
+
+.cursor {
+  position: relative;
+  padding-left: -10px;
+  padding-bottom: -100px;
+  margin-bottom: 1000px;
+  width: 70px;
+  height: 70px;
+  background-color: rgb(0, 194, 216);
+  border: 1px solid black;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  pointer-events: none;
+  z-index: 9999;
+cursor: url('data:image/svg+xml,<svg xmlns="star-5pt-outline.svg" width="48" height="48" viewBox="0 0 34 34"><path fill="%23FFF" stroke="%23000" stroke-width="2" stroke-linejoin="round" d="m12 3 2.23 6.88h7.23l-5.85 4.24L17.85 21 12 16.75 6.15 21l2.24-6.88-5.85-4.24h7.23L12 3z"></path></svg>')
+}
+.cursor-custom {
+  width: 48px;
+  height: 48px;
+  cursor: url('data:image/svg+xml,<svg xmlns="star-5pt-outline.svg" width="48" height="48" viewBox="0 0 34 34"><path fill="%23FFF" stroke="%23000" stroke-width="2" stroke-linejoin="round" d="m12 3 2.23 6.88h7.23l-5.85 4.24L17.85 21 12 16.75 6.15 21l2.24-6.88-5.85-4.24h7.23L12 3z"></path></svg>') 16 16,;
+  display: block;
+}
+
+.contenty {  
+  position: absolute;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  /* gap:20px; */
+  width: auto;
+gap:10px;
+  padding-right: 0%;
+  padding-left: 5%;
+  font-size: 50px;
+  right: 5%;
+  padding-top: 40px;
+ 
+}
+
+.contenty:hover {
+  position: absolute;
+
+}
+
+
+#shadow3 {
+  
+  text-decoration: none;
+  fill: rgb(255, 255, 255);
+  transition: text-shadow 0.3s ease; /* Add transition for smooth effect */
+}
+
+#shadow3:hover {
+  font-size: 13vh;
+  text-shadow: 2px 2px 5px rgb(9, 81, 189), -2px -2px 5px rgb(9, 81, 189), 2px -2px 5px rgb(9, 81, 189), -2px 2px 5px rgb(9, 81, 189);
+}
+html {
+  --s: 6px; /* control the size */
+  
+  --g: repeating-conic-gradient(pink 0 25%,#ECE5CE 0 50%) 0/;
+  background:
+    var(--g) calc(1*var(--s)) calc(7*var(--s)),
+    var(--g) calc(2*var(--s)) calc(5*var(--s)),
+    var(--g) calc(3*var(--s)) calc(3*var(--s)),
+    var(--g) calc(5*var(--s)) calc(2*var(--s)),
+    var(--g) calc(7*var(--s)) calc(1*var(--s));
+  background-blend-mode: lighten;
 }

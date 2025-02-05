@@ -4,56 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Keti's World</title>
-  <link rel="stylesheet" href="https://use.typekit.net/lwe2khs.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.typekit.net/iwb5eae.css">
+  
 
-  <script>
-    window.onload = function () {
-      showSplashScreen();
-      startImageFlicker();
-    };
-
-
-    function startSplashImageFlicker() {
-      const splashImage = document.getElementById("splash-flickering-image");
-      let isImageOne = true;
-      setInterval(() => {
-        splashImage.src = isImageOne ? "pixil-frame-1.png" : "pixil-frame-0.png";
-        isImageOne = !isImageOne;
-      }, 1000);
-    }
-
-    function startImageFlicker() {
-      const flickeringImage = document.getElementById('flickering-image');
-      let isImageOne = true;
-      setInterval(() => {
-        flickeringImage.src = isImageOne ? "pixil-frame-1.png" : "pixil-frame-0.png";
-        isImageOne = !isImageOne;
-      }, 3000);
-    }
-    let isImageOne = true;
-    function startImageFlicker() {
-      const flickeringImage = document.getElementById('flickering-image');
-      setInterval(() => {
-        flickeringImage.src = isImageOne ? "pixil-frame-1.png" : "pixil-frame-0.png";
-        isImageOne = !isImageOne;
-      }, 500);
-    }
-
-    function removeSplash() {
-      const splash = document.getElementById('splash');
-      splash.style.animation = 'fadeOut 1s ease-in-out';
-      setTimeout(() => splash.remove(), 1000);
-    }
-
-    window.onload = function () {
-      startImageFlicker();
-      setTimeout(removeSplash, 5000);
-      document.getElementById('splash').addEventListener('click', removeSplash);
-    };
-  </script>
 </head>
 <body>
+
+ 
+
   <div id="app">
     <header>
       <div class="splash-screen" id="splash">
@@ -64,28 +24,29 @@
         </div>
       </div>    
     </header>
-
+</div>
     <main>
-      <div id="content">
-        <nav>
-          <ul>
-            <li><a href="1" onclick="changeContent('home')">Work</a></li>
-            <li><a href="2" onclick="changeContent('about')">About Me</a></li>
-          
-          </ul>
-        </nav>
-        <div id="scroll-container">
-          <div id="scroll-text">  
-      Welcome to my page hope you like it here!    <div id="welcome-section">
-        <img src="pixil-frame-0.png" alt="Flickering Image">
-      </div>Welcome to my page hope you like it here!
-    </span>
+
+   
   
-    </div></div>
+        <div id="contain">
+          <img id="img1" src="pixil-frame-0.png">
+          World 
+        </div>
+        
+
+        <div id="scroll-container">
+          <div id="scroll-content">
+            <span>Welcome to my portfolio, hope you enjoy! </span>
+            <span>Check out my insta ;) </span>
+            <span> </span>
+          </div>
+        </div>
+        
     <div id="container">
       <div id="circle">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="600px" height="600px" viewBox="0 0 300 300" xml:space="preserve">
+          width="600px" height="600px" trext viewBox="0 0 300 300" xml:space="preserve">
           
           <defs>
             <!-- Inner Text Path -->
@@ -96,23 +57,23 @@
           </defs>
     
           <!-- Static Circles for Reference -->
-          <circle cx="150" cy="150" r="100" fill="none" stroke="black" stroke-width="1"/>
-          <circle cx="150" cy="150" r="130" fill="none" stroke="black" stroke-width="1"/>
+          <circle cx="150" cy="150" r="100" fill="none" stroke="black" stroke-width="0"/>
+          <circle cx="150" cy="150" r="130" fill="none" stroke="black" stroke-width="0"/>
     
           <!-- Rotating Inner Text (Clockwise) -->
           <g id="rotating-text-clockwise">
-            <text font-size="14" fill="black">
+            <text font-size="40" fill="white">
               <textPath xlink:href="#innerCirclePath" startOffset="0%">
-                1. Some facts about me • 2. Alone • 3. Human Routines • 4. Love is 5. Strings of Attachment 6.Synth
+            <a id="shadow">*</a>   <a id="shadow" > 1. Facts about me </a> <a id="shadow">*</a>  <a id="shadow" > 2. Alone </a> <a id="shadow"> *</a> <a id="shadow"> 3. Routines </a> <a id="shadow">*</a> <a id="shadow"> 4.Synth </a>
               </textPath>
             </text>
           </g>
     
           <!-- Rotating Outer Text (Counterclockwise) -->
           <g id="rotating-text-counterclockwise">
-            <text font-size="14" fill="black">
+            <text font-size="17" fill="white">
               <textPath xlink:href="#outerCirclePath" startOffset="0%">
-                Projects! Projects! Projects! Projects! Projects! Projects! Projects! Projects! 
+              <a id="shadow1"> Projects! Projects! Projects! Projects! Projects! Projects! Projects! Projects! Projects!Projects! Projects! Projects! Projects! Projects! Projects! Projects! Projects!  </a> 
               </textPath>
             </text>
           </g>
@@ -121,6 +82,13 @@
       </div>
     </div>
     
+    <div class="contenty" >
+    <span id="shadow3">  Work </span>
+      <span  id="shadow3">About </span>
+    </div>
+
+  
     </main>
   </div>
+  <script src="script.js"></script></script>
 </body>
