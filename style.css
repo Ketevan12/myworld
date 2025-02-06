@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: rgb(38, 0, 49);
+  background-color: rgb(0, 255, 251);
   cursor: none;
 }
 
@@ -12,7 +12,6 @@ body {
   font-weight: 50;
   font-style: normal;
 }
-
 
 
 .splash-screen {
@@ -78,31 +77,6 @@ body {
   }
 }
 
-/* New styles for "Welcome to my page" with flickering image at the top left */
-#welcome-section {
-  position: absolute;
-  top: 20px; /* Adjust to place the content slightly below the top */
-  left: 20px; /* Adjust to place the content slightly from the left */
-  display: flex;
-  align-items: center;
-  color: aliceblue;
-  font-size: 1.5em;
-}
-
-#welcome-section img {
-  width: 3em; /* Adjust image size */
-  height: 3em; /* Adjust image size */
-  margin-left: 10px; /* Space between text and image */
-}
-
-
-#app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
 
 header h1 {
   margin-left: 10px;
@@ -129,7 +103,7 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   text-decoration: none; 
-  fill: rgb(141, 0, 54); 
+  
   cursor: none;
  
 }
@@ -154,22 +128,21 @@ transition-delay: 10s;
 
 #shadow {
   text-decoration: none;
-  fill: rgb(255, 255, 255);
+  fill: rgba(242, 201, 255, 1); /* Set alpha to 1 for full opacity */
   transition: text-shadow 0.3s ease; /* Add transition for smooth effect */
 }
 
 #shadow:hover {
 
-  text-shadow: 2px 2px 5px rgb(9, 81, 189), -2px -2px 5px rgb(9, 81, 189), 2px -2px 5px rgb(9, 81, 189), -2px 2px 5px rgb(9, 81, 189);
-}
+  text-shadow:2px 2px 5px rgb(189, 9, 111), -2px -2px 5px rgb(189, 9, 111), 2px -2px 5px rgb(189, 9, 111), -2px 2px 5px rgb(189, 9, 111);}
 #shadow1 {
   text-decoration: none;
-  fill: rgb(255, 255, 255);
+  fill: rgba(242, 201, 255, 1); /* Set alpha to 1 for full opacity */
   transition: text-shadow 0.3s ease; /* Add transition for smooth effect */
  
 }
 #shadow1:hover {
-  text-shadow: 2px 2px 5px rgb(189, 9, 111), -2px -2px 5px rgb(189, 9, 111), 2px -2px 5px rgb(189, 9, 111), -2px 2px 5px rgb(189, 9, 111);
+  text-shadow:  2px 2px 5px rgb(9, 81, 189), -2px -2px 5px rgb(9, 81, 189), 2px -2px 5px rgb(9, 81, 189), -2px 2px 5px rgb(9, 81, 189);
 }
 
 
@@ -238,7 +211,7 @@ transition-delay: 10s;
 
 #scroll-content span {
   font-size: 30px;
-  color: rgb(0, 104, 94);
+  color: rgb(231, 0, 181);
 }
 
 .flickering-image1 {
@@ -252,9 +225,6 @@ transition-delay: 10s;
   100% { transform: translateX(-100%); } /* Move fully off-screen */
 }
 
-body, html {
-  overflow: hidden;
-}
 #contain {
   position: absolute; /* Allow precise positioning */
   top: 0;  /* Align to the top */
@@ -269,13 +239,17 @@ body, html {
   padding: 0px; 
   font-size: 9vh;
   padding-top:22px;
+  color:rgb(255, 0, 195);
+  padding-left: 6px;
 }
-
 #img1 {
   width: 14vh;  /* Make image smaller */
   height: auto; /* Maintain aspect ratio */
-  max-width: 20vw; 
-  max-height: 20vh; 
+  max-width: 15vw; 
+  max-height: 15vh;
+  position: absolute;  
+  padding-top: 50px;
+  
 }
 
 #contain2 {
@@ -327,26 +301,6 @@ cursor: url('data:image/svg+xml,<svg xmlns="star-5pt-outline.svg" width="48" hei
   display: block;
 }
 
-.contenty {  
-  position: absolute;
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-  /* gap:20px; */
-  width: auto;
-gap:10px;
-  padding-right: 0%;
-  padding-left: 0%;
-  font-size: 50px;
-  right: 2%;
-  padding-top: 35px;
- 
-}
-
-.contenty:hover {
-  position: absolute;
-
-}
-
 
 #shadow3 {
   
@@ -371,3 +325,139 @@ html {
     var(--g) calc(7*var(--s)) calc(1*var(--s));
   background-blend-mode: lighten;
 }
+
+.container10{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position:relative;
+  width: 100%;
+  height:1000px;
+  background:rgb(40, 11, 208); /* Set alpha to 1 for full opacity */
+  overflow: hidden;
+}
+.container10 p{
+  padding:20px;
+  margin:0;
+  font-size:40px;
+  font-weight: bold;
+  color:rgb(9, 81, 189)
+}
+
+.stars{
+  position: absolute;
+  left:0;
+  top:0;
+  width: 100%;
+  height:100%;
+}
+
+.stars span{
+  position:relative;
+}
+
+.stars span:before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  
+  /*星のサイズ調節*/
+  transform:scale(0.20);
+}
+
+.stars span.s:before{
+  
+   /*20px 20pxが中央*/
+  box-shadow: 20px 20px #FFFFFF;
+}
+
+.stars span.m:before{
+  box-shadow: 
+    /*1段目*/
+    20px 10px #FFF176,
+    /*2段目*/
+    10px 20px #FFF176,
+    20px 20px #FFFFFF,
+    30px 20px #FFF176,
+    /*3段目*/
+    20px 30px #FFF176;
+}
+
+.stars span.l:before{
+  box-shadow: 
+    /*0段目*/
+    20px  0px #FDD835,
+    /*1段目*/
+    20px 10px #FFF176,
+    /*2段目*/
+     0px 20px #FDD835,
+    10px 20px #FFF176,
+    20px 20px #FFFFFF,
+    30px 20px #FFF176,
+    40px 20px #FDD835,
+    /*3段目*/
+    20px 30px #FFF176,
+    /*4段目*/
+    20px 40px #FDD835;
+}
+
+
+ /*
+星の位置とアニメーション指定
+最初の秒はアニメーション時間、2つ目は開始までの時間
+*/
+.stars span:nth-child(1){left:10%; top:10%; animation: star-anim 8s 0s infinite;}
+.stars span:nth-child(2){left:80%; top:20%; animation: star-anim 6s 1s infinite;}
+.stars span:nth-child(3){left:60%; top:40%; animation: star-anim 5s 2s infinite;}
+.stars span:nth-child(4){left:20%; top:70%; animation: star-anim 7s 3s infinite;}
+.stars span:nth-child(5){left:80%; top:80%; animation: star-anim 7s 4s infinite;}
+
+.stars span:nth-child(6){left:40%; top:10%; animation: star-anim 4s 0s infinite;}
+.stars span:nth-child(7){left:10%; top:50%; animation: star-anim 7s 1s infinite;}
+.stars span:nth-child(8){left:50%; top:50%; animation: star-anim 8s 2s infinite;}
+.stars span:nth-child(9){left:90%; top:90%; animation: star-anim 5s 3s infinite;}
+.stars span:nth-child(10){left:80%; top:50%; animation: star-anim 7s 4s infinite;}
+
+.stars span:nth-child(11){left:90%; top:10%; animation: star-anim 5s 0s infinite;}
+.stars span:nth-child(12){left:10%; top:80%; animation: star-anim 6s 1s infinite;}
+.stars span:nth-child(13){left:30%; top:20%; animation: star-anim 7s 2s infinite;}
+.stars span:nth-child(14){left:60%; top:90%; animation: star-anim 8s 3s infinite;}
+.stars span:nth-child(15){left:80%; top:50%; animation: star-anim 7s 4s infinite;}
+
+/*アニメーションキーフレーム*/
+@keyframes star-anim {
+  0% {opacity:0;}
+  5% {opacity:1;}
+  10% {opacity:0;}
+  55% {opacity:0;}
+  60% {opacity:1;}
+  95% {opacity:0;}
+  100% {opacity:1;}
+}
+#contenty {
+  position: fixed;
+  right: 0%;  /* Adjusted for proper positioning */
+  top: 3%;  /* Adjusted to vertically center */
+  padding-right: 20px;
+  z-index: 100;  /* Ensures it's above other elements */
+  font-size: 4vw;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap:15px;
+  padding-top: 5px;
+}
+
+
+
+.parent{
+  position: relative;
+  padding-left: 10px;
+}
+.over-img{
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  padding-left: 10px;
+}
+
