@@ -79,27 +79,34 @@
           width="600px" height="600px" trext viewBox="0 0 300 300" xml:space="preserve">
           
           <defs>
-            <!-- Inner Text Path -->
+           
             <path id="innerCirclePath" d="M 150, 150 m -100, 0 a 100,100 0 1,1 200,0 a 100,100 0 1,1 -200,0"/>
     
-            <!-- Outer Text Path (Larger) -->
+         
             <path id="outerCirclePath" d="M 150, 150 m -130, 0 a 130,130 0 1,1 260,0 a 130,130 0 1,1 -260,0"/>
           </defs>
     
-          <!-- Static Circles for Reference -->
+        
           <circle cx="150" cy="150" r="100" fill="none" stroke="black" stroke-width="0"/>
           <circle cx="150" cy="150" r="130" fill="none" stroke="black" stroke-width="0"/>
     
-          <!-- Rotating Inner Text (Clockwise) -->
+ 
           <g id="rotating-text-clockwise">
             <text font-size="40" fill="white">
               <textPath xlink:href="#innerCirclePath" startOffset="0%">
-            <a id="shadow">*</a>   <a id="shadow" > 1. Facts about me </a> <a id="shadow">*</a>  <a id="shadow" > 2. Alone </a> <a id="shadow"> *</a> <a id="shadow"> 3. Routines </a> <a id="shadow">*</a> <a id="shadow"> 4.Synth </a>
+                <a id="shadow">*</a>
+                <a class="popup-trigger" href="book-3 (dragged).jpg" id="factsLink" onmouseover="showPopup('book-3 (dragged).jpg')">1. Facts About Me</a>
+                <a id="shadow">*</a>
+                <a class="popup-trigger" href="javascript:void(0);" onmouseover="showPopup('alone.html')">2. Alone</a>
+                <a id="shadow">*</a>
+                <a class="popup-trigger" id="routinesLink" href="javascript:void(0);" onmouseover="showPopup('routines.html')">3. Routines</a>
+                <a id="shadow">*</a>
+                <a class="popup-trigger" href="javascript:void(0);" onmouseover="showPopup('synth.html')">4. Synth</a>
               </textPath>
             </text>
           </g>
-    
-          <!-- Rotating Outer Text (Counterclockwise) -->
+
+
           <g id="rotating-text-counterclockwise">
             <text font-size="17" fill="white">
               <textPath xlink:href="#outerCirclePath" startOffset="0%">
@@ -111,7 +118,19 @@
         </svg>
       </div>
     </div>
-    
+ 
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+   
+      <iframe id="popupIframe" src=""></iframe>
+    </div>
+  </div>
+    <div class="icon-container">
+  <div class="circle-icon" data-url="https://example.com"></div>
+  <div class="popup">Go to the URL</div>
+</div>
+
     </main>
   </div>
   <script src="script.js"></script></script>

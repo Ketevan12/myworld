@@ -171,4 +171,27 @@ const positionCursor = (e) => {
 
 window.addEventListener('mousemove', positionCursor);
 
-  
+   function showPopup(page) {
+      var popup = document.getElementById("popup");
+      var iframe = document.getElementById("popupIframe");
+      iframe.src = page;  // Set the src of the iframe to the page you want to show
+      
+      // Display the popup
+      popup.style.display = "block";
+    }
+
+    // Function to close the popup
+    function closePopup() {
+      var popup = document.getElementById("popup");
+      var iframe = document.getElementById("popupIframe");
+      iframe.src = "";  // Reset iframe src to stop content
+      popup.style.display = "none";
+    }
+
+    // Close popup when clicking outside the content area
+    window.onclick = function(event) {
+      var popup = document.getElementById("popup");
+      if (event.target == popup) {
+        closePopup();
+      }
+    }
