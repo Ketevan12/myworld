@@ -4,7 +4,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: rgb(0, 255, 251);
-  cursor: none;
+  
 }
 
 .jacquard-12-regular {
@@ -27,7 +27,6 @@ body {
   text-align: center;
   z-index: 1000;
   color: rgb(255, 0, 195);
-  cursor: none;
 }
 
 .splash-text {
@@ -104,7 +103,7 @@ section {
   transform: translate(-50%, -50%);
   text-decoration: none; 
   
-  cursor: none;
+  /* cursor: none; */
  
 }
 
@@ -121,9 +120,7 @@ section {
   text-decoration: none;
 }
 
-#circle:hover {
-transition-delay: 10s;
-}
+
 
 
 #shadow {
@@ -151,6 +148,7 @@ transition-delay: 10s;
   animation: rotate-clockwise 10s linear infinite;
   transform-origin: 150px 150px; /* Center of the SVG */
 }
+
 
 /* Outer text rotates counterclockwise */
 #rotating-text-counterclockwise {
@@ -242,20 +240,14 @@ transition-delay: 10s;
   color:rgb(255, 0, 195);
   padding-left: 9px;
 }
-#img1 {
-  width: 14vh;  /* Make image smaller */
-  height: auto; /* Maintain aspect ratio */
-  max-width: 15vw; 
-  max-height: 15vh;
-  position: absolute;  
-  padding-top: 50px;
-  
+
+
+.cursor { 
+  display: none;
 }
 
 
-
-
-.cursor {
+/* .cursor {
   position: relative;
   padding-left: -10px;
   padding-bottom: -100px;
@@ -274,7 +266,7 @@ cursor: url('data:image/svg+xml,<svg xmlns="star-5pt-outline.svg" width="48" hei
   height: 48px;
   cursor: url('data:image/svg+xml,<svg xmlns="star-5pt-outline.svg" width="48" height="48" viewBox="0 0 34 34"><path fill="%23FFF" stroke="%23000" stroke-width="2" stroke-linejoin="round" d="m12 3 2.23 6.88h7.23l-5.85 4.24L17.85 21 12 16.75 6.15 21l2.24-6.88-5.85-4.24h7.23L12 3z"></path></svg>') 16 16,;
   display: block;
-}
+} */
 
 
 #shadow3 {
@@ -449,6 +441,7 @@ html {
   width: 100%;
   height: 100%;
   overflow: hidden;
+ 
 }
 
 .popup-content {
@@ -456,7 +449,7 @@ html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 25%;
+  width: 20%;
   height: 25%;
   box-sizing: border-box;
   padding: 10px;
@@ -464,12 +457,17 @@ html {
 }
 
 iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
+  width: 88%;
+
 }
 
-/* Close button */
+iframe img {
+  width: 100%; 
+  height: auto; 
+  object-fit: contain; /* Ensures full image is visible */
+}
+
+
 .close-btn {
   color: rgb(40, 11, 208); 
   font-size: 28px;
@@ -484,3 +482,42 @@ iframe {
 .close-btn:focus {
   color: black;
 }
+#popup:hover + iframe {
+  opacity: 1;
+  transition: opacity 1.5s linear;
+}
+
+
+
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.splash-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+  background-color: rgba(242, 201, 255, 1); /* Set alpha to 1 for full opacity */
+}
+
+#ketis-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  padding: 10px;
+
+}
+
+#ketis-link:hover {
+  text-shadow:2px 2px 5px rgb(189, 9, 111), -2px -2px 5px rgb(189, 9, 111), 2px -2px 5px rgb(189, 9, 111), -2px 2px 5px rgb(189, 9, 111);}
+
+
+  
