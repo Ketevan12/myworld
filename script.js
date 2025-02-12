@@ -5,23 +5,6 @@ window.onload = function () {
 };
 
 
-function startSplashImageFlicker() {
-  const splashImage = document.getElementById("splash-flickering-image");
-  let isImageOne = true;
-  setInterval(() => {
-    splashImage.src = isImageOne ? "pixil-frame-1.png" : "pixil-frame-0.png";
-    isImageOne = !isImageOne;
-  }, 1000);
-}
-
-function startImageFlicker() {
-  const flickeringImage = document.getElementById('flickering-image');
-  let isImageOne = true;
-  setInterval(() => {
-    flickeringImage.src = isImageOne ? "pixil-frame-1.png" : "pixil-frame-0.png";
-    isImageOne = !isImageOne;
-  }, 3000);
-}
 let isImageOne = true;
 function startImageFlicker() {
   const flickeringImage = document.getElementById('flickering-image');
@@ -34,9 +17,14 @@ function startImageFlicker() {
 function removeSplash() {
   const splash = document.getElementById('splash');
   splash.style.animation = 'fadeOut 1s ease-in-out';
-  setTimeout(() => splash.remove(), 1000);
+  setTimeout(() => splash.remove(), 2000);
 }
 
+function removeSplash() {
+    const splash = document.getElementById('splash');
+    splash.style.animation = 'fadeOut 1s ease-in-out';
+    setTimeout(() => splash.style.display = "none", 1000);
+}
 
 
 window.onload = function () {
@@ -177,46 +165,8 @@ if (cursor) {
 
 window.addEventListener('mousemove', positionCursor);
 
-   function showPopup(page) {
-      var popup = document.getElementById("popup");
-      var iframe = document.getElementById("popupIframe");
-      iframe.src = page;  // Set the src of the iframe to the page you want to show
-      
-      // Display the popup
-      popup.style.display = "block";
-    }
 
-    // Function to close the popup
-    function closePopup() {
-      var popup = document.getElementById("popup");
-      var iframe = document.getElementById("popupIframe");
-      iframe.src = "";  // Reset iframe src to stop content
-      popup.style.display = "none";
-    }
 
-    // Close popup when clicking outside the content area
-    window.onclick = function(event) {
-      var popup = document.getElementById("popup");
-      if (event.target == popup) {
-        closePopup();
-      }
-    }
-// Function to show the popup on hover
-function showPopup(page) {
-    var popup = document.getElementById("popup");
-    var iframe = document.getElementById("popupIframe");
-    iframe.src = page;  // Set the src of the iframe to the desired page
-    
-    popup.style.display = "block";
-  }
-  
-  // Function to close the popup when hover stops
-  function closePopup() {
-    var popup = document.getElementById("popup");
-    var iframe = document.getElementById("popupIframe");
-    iframe.src = "";  // Reset iframe src to stop content
-    popup.style.display = "none";
-  }
   
   // Attach event listeners to the element that should trigger the popup
   var popupTrigger = document.getElementById("popupTrigger"); // Ensure this element exists in your HTML
@@ -228,45 +178,4 @@ function showPopup(page) {
     popupTrigger.addEventListener("mouseout", closePopup);
   }
   
-  window.onload = function () {
-    startImageFlicker();
-    setTimeout(removeSplash, 2000);
-    document.getElementById('splash').addEventListener('click', removeSplash);
-  };
-  document.querySelector("iframe").onload = function() {
-    let iframeDoc = this.contentDocument || this.contentWindow.document;
-    let img = iframeDoc.querySelector("img");
-    if (img) {
-        img.style.width = "100%";
-        img.style.height = "100%";
-        img.style.objectFit = "cover";
-    }
-};
 
-
-     // Selecting the iframe element
-     var frame = document.getElementById("Iframe");
-            
-     // Adjusting the iframe height onload event
-     frame.onload = function() {
-         // set the height of the iframe as 
-         // the height of the iframe content
-         frame.style.height = frame.contentWindow.document.body.scrollHeight + 'px';
-
-         // set the width of the iframe as the 
-         // width of the iframe content
-         frame.style.width  = frame.contentWindow.document.body.scrollWidth + 'px';
-     }
-
-     window.onload = function () {
-        startImageFlicker();
-        setTimeout(removeSplash, 5000); // Auto-remove after 5 seconds
-        document.getElementById('splash').addEventListener('click', removeSplash);
-    };
-    
-    function removeSplash() {
-        const splash = document.getElementById('splash');
-        splash.style.animation = 'fadeOut 1s ease-in-out';
-        setTimeout(() => splash.style.display = "none", 1000);
-    }
-    

@@ -155,4 +155,17 @@ section {
         font-family: monospace;
         padding-top: 100px; /* Adjust padding as needed */
     }
-    
+    .zoomvid{
+        transition: transform 0.2s;
+        width: 50%;
+        height: 50%;
+        position: relative;
+        display: block;
+        margin: 0 auto;
+
+    }
+    .zoomvid:hover{
+        transform: scale(1.5);
+  
+
+    }
